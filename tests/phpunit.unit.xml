@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../vendor/phpunit/phpunit/phpunit.xsd"
+    bootstrap="../vendor/autoload.php"
+    backupGlobals="false"
+    cacheDirectory="../.phpunit.cache/unit"
+    backupStaticProperties="false"
+    colors="true"
+    displayDetailsOnTestsThatTriggerWarnings="true"
+    processIsolation="false"
+    failOnWarning="true"
+    failOnRisky="true"
+>
+    <source>
+        <include>
+            <directory suffix=".php">../src/</directory>
+        </include>
+    </source>
+    <testsuites>
+        <testsuite name="社区附注单元测试">
+            <directory suffix="Test.php">./Unit</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

@@ -1,0 +1,242 @@
+ffans-community-notes:
+  admin:
+    settings:
+      min_ratings_label: 最少评价人数
+      min_ratings_help: 达到此人数后才判定附注是否有帮助，范围为 1 至 100。
+      helpful_threshold_label: 有帮助阈值（%）
+      helpful_threshold_help: 评分达到此百分比时，附注被评为有帮助。必须大于没有帮助阈值。
+      not_helpful_threshold_label: 没有帮助阈值（%）
+      not_helpful_threshold_help: 评分不高于此百分比时，附注被评为没有帮助。必须小于有帮助阈值。
+
+    permissions:
+      create: 创建社区附注
+      rate: => ffans-community-notes.ref.rate_note
+      moderate: => ffans-community-notes.ref.moderate_note
+
+  forum:
+    navigation:
+      title: => ffans-community-notes.ref.community_notes
+      description: 补充来源与背景，让社区一起判断哪些信息有帮助。
+      list_a11y_label: 附注列表
+      helpful_button: => ffans-community-notes.ref.helpful
+      latest_button: 最新
+      hidden_button: => ffans-community-notes.ref.hidden
+      refresh_a11y_label: 刷新附注列表
+
+    post_controls:
+      add_button: => ffans-community-notes.ref.add_note
+      view_mine_button: 查看我的社区附注
+      manage_button: => ffans-community-notes.ref.manage_notes
+
+    list:
+      latest_heading_a11y_label: 尚未显示附注的帖子
+      latest_description: 这些帖子的附注尚未公开显示，按添加时间从新到旧排列。参与评价，帮助社区判断哪些信息有用。
+      latest_a11y_label: 最新附注帖子
+      latest_empty: 目前没有尚未公开展示附注的帖子。
+      helpful_heading_a11y_label: 被社区评价为有帮助的附注
+      helpful_description: 这些帖子上的附注已被评价为有帮助，为阅读提供更多背景信息。
+      helpful_a11y_label: 有帮助的附注帖子
+      helpful_empty: 目前还没有被评价为有帮助的附注。
+      hidden_heading_a11y_label: 已隐藏的附注
+      hidden_description: 这些附注已被隐藏，不会公开展示。可在附注信息栏中恢复或永久删除。
+      hidden_a11y_label: 已隐藏的附注列表
+      hidden_empty: 目前没有已隐藏的附注。
+      rating_permission_denied: 你没有评价社区附注的权限。
+      moderation_permission_denied: => ffans-community-notes.ref.moderation_permission_denied
+      other_notes: 还有 {count} 条附注
+      view_all_button: => ffans-community-notes.ref.view_all_notes
+      retry_button: => ffans-community-notes.ref.retry
+      load_more_button: 加载更多
+
+    post:
+      page_title: => ffans-community-notes.ref.rate_note
+      modal_title: => ffans-community-notes.ref.view_all_notes
+      title: 附注详情
+      description: 结合原帖与参考来源，判断这些补充信息是否有帮助。
+      back_a11y_label: 返回社区附注列表
+      permission_denied: 你没有查看社区附注评价页的权限。
+      notes_a11y_label: 帖子的全部附注
+      notes_title: 这条帖子的社区附注
+      empty: 这条帖子暂无可查看的附注，或你没有访问权限。
+      retry_button: => ffans-community-notes.ref.retry
+      load_more_button: 加载更多附注
+
+    post_link:
+      a11y_label: 查看原帖：{title}
+      with_number_a11y_label: 查看原帖：{title}，第 {number} 楼
+      number: "{number} 楼"
+
+    public_note:
+      a11y_label: => ffans-community-notes.ref.community_notes
+      title: 社区认为这条附注有帮助
+
+    note:
+      a11y_label: 社区附注详情
+      manage_a11y_label: => ffans-community-notes.ref.manage_notes
+      meta_a11y_label: 附注信息
+      rated_as: 目前被评为<status></status>
+      hidden: => ffans-community-notes.ref.hidden
+      public: 已随原帖公开展示
+      not_public: 未公开展示
+      drafted_by: 由 {author} 起草
+      reason: 理由为{reason}
+      deleted_user: 已删除用户
+      contributor: 社区贡献者
+
+    status:
+      needs_more_ratings: 需要更多评价
+      helpful: => ffans-community-notes.ref.helpful
+      not_helpful: => ffans-community-notes.ref.not_helpful
+      unknown: 未知
+
+    sources:
+      a11y_label: 参考来源
+      open_in_new_window_a11y_label: （在新窗口打开）
+
+    editor:
+      create_title: => ffans-community-notes.ref.add_note
+      edit_title: 我的社区附注
+      help: 请补充可核查的背景与来源，避免回复或争论。提交后需等待社区评价。
+      create_unavailable: 你目前无法添加社区附注。
+      edit_unavailable: 你目前无法编辑或删除这条附注。
+      reason_label: 附注原因
+      reason_placeholder: 请选择原因
+      content_label: 附注正文
+      character_count: "{count} / 1000 个字符，至少 30 个字符"
+      content_help: 正文使用纯文本，不支持 Markdown 或 BBCode 格式。
+      sources_label: 来源（1–5 个）
+      sources_help: 提供可核查的网页链接，支持 HTTP 或 HTTPS 地址。
+      source_a11y_label: 来源 {number}
+      add_source_button: 添加来源
+      add_source_a11y_label: 在来源 {number} 后添加来源
+      remove_source_button: 移除来源
+      remove_source_a11y_label: 移除来源 {number}
+      submit_button: 提交附注
+      save_button: 保存修改
+      delete_button: 删除附注
+      delete_confirmation: 确定要永久删除这条社区附注吗？此操作无法撤销。
+      created_message: 社区附注已提交，正在等待社区评价。
+      updated_message: 社区附注已更新。
+      deleted_message: 社区附注已删除。
+      errors:
+        reason_required: 请选择附注原因。
+        content_length: 正文需要 30–1000 个字符。
+        sources_count: 请提供 1–5 个来源。
+        source_invalid: 来源必须是有效的 HTTP 或 HTTPS 地址，且不能超过 2048 个字符。
+        source_duplicate: 来源地址不能重复。
+
+    note_reasons:
+      missing_context: 缺少重要背景
+      outdated_information: 信息可能已经过时
+      factual_error: 存在事实错误
+      misleading: 内容可能造成误解
+      media_context: 图片或媒体缺少上下文
+      other: 其他
+
+    rating:
+      title: => ffans-community-notes.ref.rate_note
+      button: 你觉得此信息是否有帮助？
+      button_a11y_label: 评价这条社区附注
+      edit_button_a11y_label: "{rating}，修改评价"
+      unavailable: 你目前无法评价这条附注。
+      question: 这条附注有帮助吗？
+      reasons_label: 评价理由（选择 1–3 个）
+      submit_button: 提交评价
+      update_button: 更新评价
+      cancel_button: => ffans-community-notes.ref.cancel
+      retry_button: => ffans-community-notes.ref.retry
+      values:
+        helpful: => ffans-community-notes.ref.helpful
+        somewhat_helpful: 部分有帮助
+        not_helpful: => ffans-community-notes.ref.not_helpful
+      summaries:
+        helpful: 你认为这条附注很有用
+        somewhat_helpful: 你认为这条附注部分有用
+        not_helpful: 你认为这条附注没有帮助
+      reasons:
+        helpful:
+          important_context: 补充了重要背景
+          directly_addresses_claim: 直接回应了原帖内容
+          clear: 表述清楚
+          reliable_sources: 来源可靠
+          neutral: 措辞中立
+          unique_information: 提供了独特信息
+        somewhat_helpful:
+          partially_helpful: 部分内容有帮助
+          needs_more_context: 需要更多背景
+          mixed_source_quality: 来源质量不一
+          wording_needs_improvement: 措辞需要改进
+        not_helpful:
+          incorrect: 内容不正确
+          unreliable_or_missing_sources: 来源不可靠或不足
+          not_needed: 无需补充此附注
+          irrelevant: 与原帖无关
+          missing_important_context: 遗漏重要背景
+          opinion_or_speculation: 属于观点或推测
+          hostile_or_inflammatory: 含有敌意或煽动性措辞
+          unclear: 表述不清楚
+          outdated: 信息已过时
+      errors:
+        value_required: 请选择评价。
+        reasons_count: 请选择 1–3 个评价理由。
+        reasons_invalid: 评价理由与当前评价不匹配，请重新选择。
+
+    moderation:
+      title: => ffans-community-notes.ref.moderate_note
+      permission_denied: => ffans-community-notes.ref.moderation_permission_denied
+      retry_button: => ffans-community-notes.ref.retry
+      hidden_reason_label: 隐藏原因
+      hide_reason_label: 隐藏原因（必填）
+      hide_help: 隐藏后退出公开展示和评价队列，已有评价及评分状态保留。
+      restore_help: 恢复后按原有评分状态参与展示，已有评价保持不变。
+      hide_button: 隐藏
+      restore_button: 恢复
+      cancel_button: => ffans-community-notes.ref.cancel
+      delete_button: 永久删除
+      delete_confirmation: 确定要永久删除这条社区附注吗？正文、来源、评价都会被删除，无法恢复。
+      reason_required: => ffans-community-notes.validation.hide_reason_required
+      hidden_message: 附注已隐藏。
+      restored_message: 附注已恢复。
+      deleted_message: 附注已永久删除。
+
+    errors:
+      inaccessible: 附注不可访问或你已无权执行此操作，请刷新页面后重试。
+      request_failed: 操作失败，请检查网络后重试。
+      detail_separator: ；
+
+  validation:
+    note:
+      reason_invalid: 请选择有效的附注原因。
+      content_invalid: 附注正文必须为 30 至 1000 个 Unicode 字符的纯文本。
+      sources_count: 请提供 1 至 5 个来源链接。
+      source_invalid: 来源必须是有效的 HTTP 或 HTTPS 链接。
+      source_url_invalid: 来源必须是长度不超过 2048 个字符且包含主机名的 HTTP 或 HTTPS 链接。
+      source_duplicate: 同一附注内不能重复填写来源链接。
+    rating:
+      value_invalid: 请选择有效的评价类型。
+      reasons_count: 请选择 1 至 3 个评价理由。
+      reason_mismatch: 评价理由必须与所选评价类型一致。
+      reason_duplicate: 不能重复选择评价理由。
+    settings:
+      min_ratings_invalid: 最少评价人数必须是 1 至 100 之间的整数。
+      helpful_threshold_invalid: 有帮助阈值必须是 0 至 100 之间的整数。
+      not_helpful_threshold_invalid: 没有帮助阈值必须是 0 至 100 之间的整数。
+      thresholds_invalid: 没有帮助阈值必须小于有帮助阈值。
+    data_invalid: 请提交有效的社区附注数据，仅允许修改原因、正文和来源。
+    relationships_invalid: 不允许修改此附注关系。
+    post_invalid: 请选择有效的原帖。
+    hide_reason_required: 请填写隐藏此社区附注的原因。
+
+  ref:
+    community_notes: 社区附注
+    add_note: 添加社区附注
+    rate_note: 评价社区附注
+    moderate_note: 管理社区附注
+    manage_notes: => ffans-community-notes.ref.moderate_note
+    view_all_notes: 查看此帖的所有附注
+    helpful: 有帮助
+    not_helpful: 没有帮助
+    hidden: 已隐藏
+    retry: 重试
+    cancel: 取消
+    moderation_permission_denied: 你没有管理社区附注的权限。

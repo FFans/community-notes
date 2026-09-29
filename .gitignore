@@ -1,0 +1,10 @@
+/vendor/
+/composer.lock
+/js/node_modules/
+/js/dist-typings/
+/js/coverage-ts/
+/tests/tmp/
+/tests/Integration/tmp/
+/tests/integration/tmp/
+/.phpunit.cache/
+/.idea/

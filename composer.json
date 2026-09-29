@@ -1,0 +1,97 @@
+{
+    "name": "ffans/community-notes",
+    "description": "Let the community add and rate notes that provide context for potentially misleading posts.",
+    "type": "flarum-extension",
+    "license": "MIT",
+    "keywords": [
+        "flarum",
+        "extension"
+    ],
+    "homepage": "https://github.com/FFans/community-notes",
+    "support": {
+        "issues": "https://github.com/FFans/community-notes/issues",
+        "source": "https://github.com/FFans/community-notes",
+        "forum": "https://discuss.flarum.org/d/39948",
+        "forumZh": "https://discuss.flarum.org.cn/d/16573"
+    },
+    "authors": [
+        {
+            "name": "Golden",
+            "email": "thatsgolden@outlook.com",
+            "homepage": "https://github.com/thatsgolden",
+            "role": "Developer"
+        },
+        {
+            "name": "FFans",
+            "homepage": "https://github.com/FFans"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "flarum/core": "^2.0"
+    },
+    "require-dev": {
+        "flarum/testing": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FFans\\CommunityNotes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FFans\\CommunityNotes\\Tests\\": "tests/"
+        },
+        "exclude-from-classmap": ["/tests/tmp/", "/tests/Integration/tmp/", "/tests/integration/tmp/"]
+    },
+    "scripts": {
+        "test": ["@test:unit", "@test:integration", "@test:smoke"],
+        "test:unit": "@php vendor/bin/phpunit -c tests/phpunit.unit.xml",
+        "test:integration": "@php vendor/bin/phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/Integration/setup.php",
+        "test:smoke": "@php tests/phase0-smoke.php"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:unit": "Runs all unit tests.",
+        "test:integration": "Runs all integration tests.",
+        "test:setup": "Sets up a database for use with integration tests. Execute this only once.",
+        "test:smoke": "Verifies extension setup, enabling and disabling, and frontend assets in an isolated SQLite forum."
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "FFans Community Notes",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-note-sticky",
+                "color": "#ffffff",
+                "backgroundColor": "#357eff"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "admin": true,
+                "forum": true,
+                "js": true,
+                "jsCommon": true,
+                "css": true,
+                "locale": true,
+                "gitConf": true,
+                "githubActions": true,
+                "prettier": false,
+                "typescript": true,
+                "bundlewatch": false,
+                "frontendTesting": true,
+                "backendTesting": true,
+                "phpstan": false,
+                "editorConfig": true,
+                "styleci": true
+            }
+        },
+        "volta": {
+            "php": "8.3.33"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

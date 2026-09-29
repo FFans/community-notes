@@ -1,0 +1,82 @@
+@community-notes-border: color-mix(in srgb, var(--control-bg) 82%, var(--muted-color));
+@community-notes-secondary-color: color-mix(in srgb, var(--muted-color) 80%, var(--text-color));
+@community-notes-surface: color-mix(in srgb, var(--control-bg) 38%, var(--body-bg));
+
+// 列表、详情和弹窗共用附注信息项，仅状态标签的底色不同。
+.community-notes-meta-items(@badge-background: var(--control-bg)) {
+  > li {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+  }
+
+  > li:first-child {
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: @badge-background;
+    color: var(--text-color);
+    font-weight: 600;
+  }
+}
+
+// 原帖摘要共用网格结构，列位置由列表和弹窗各自决定。
+.community-notes-post-grid(@columns; @content-column; @avatar-column) {
+  .Post-container {
+    display: grid;
+    grid-template-columns: @columns;
+  }
+
+  .Post-main {
+    display: contents;
+
+    > * {
+      grid-column: @content-column;
+    }
+  }
+
+  .Post-side {
+    grid-column: @avatar-column;
+    grid-row: 1;
+
+    .Post-avatar {
+      .Avatar--size(32px);
+    }
+  }
+}
+
+.community-notes-post-header(@column; @line-height) {
+  grid-column: @column;
+  align-self: center;
+  min-width: 0;
+  margin: 0;
+  padding-inline-start: 12px;
+  font-size: 12px;
+  line-height: @line-height;
+}
+
+// 评价和管理弹窗共用桌面外框与标题，正文圆角由各自内容决定。
+.community-notes-modal-shell(@padding) {
+  .Modal-content {
+    border-radius: 12px;
+    background: var(--body-bg);
+  }
+
+  .Modal-header {
+    padding: 24px @padding;
+    padding-inline-end: 60px;
+    text-align: start;
+
+    h3 {
+      color: var(--heading-color);
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+}
+
+.community-notes-focus-ring(@offset: 3px) {
+  outline: 2px solid var(--primary-color);
+  outline-offset: @offset;
+}

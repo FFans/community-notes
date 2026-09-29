@@ -1,0 +1,13 @@
+name: FFans Community Notes PHP
+
+on: [workflow_dispatch, push, pull_request]
+
+jobs:
+  run:
+    uses: flarum/framework/.github/workflows/REUSABLE_backend.yml@2.x
+    with:
+      enable_backend_testing: true
+      php_versions: '["8.3", "8.4", "8.5"]'
+      php_extensions: 'curl, dom, gd, json, mbstring, openssl, pdo_mysql, pdo_sqlite, pdo_pgsql, tokenizer, zip'
+
+      backend_directory: .
